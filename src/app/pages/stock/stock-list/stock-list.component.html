@@ -2,8 +2,14 @@
   Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)
   <div class="container">
     <input id="stockInput" [formControl]="searchControl" type="text" />
-    <button class="primary" id="trackBtn" (click)="search()">
+    <button class="primary" id="trackBtn" (click)="searchData()">
       Track Stock
     </button>
   </div>
 </app-card>
+
+<div class="card-list">
+  <div class="card-container" *ngFor="let stock of stockList">
+    <app-company-card [data]="stock"></app-company-card>
+  </div>
+</div>

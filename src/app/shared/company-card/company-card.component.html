@@ -1,0 +1,10 @@
+<app-card>
+  {{ data?.symbol.description }}
+  <p>
+    change today: {{ data?.quote.dp | percent: '1.2' }}
+    current price:
+    {{ data?.quote.c | currency }}
+    opening price: {{ data?.quote.o | currency }} high price:
+    {{ data?.quote.h | currency }}
+  </p>
+</app-card>
