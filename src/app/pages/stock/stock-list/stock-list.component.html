@@ -10,6 +10,9 @@
 
 <div class="card-list">
   <div class="card-container" *ngFor="let stock of stockList">
-    <app-company-card [data]="stock"></app-company-card>
+    <app-company-card
+      (delete)="deleteData($event)"
+      [data]="stock"
+    ></app-company-card>
   </div>
 </div>

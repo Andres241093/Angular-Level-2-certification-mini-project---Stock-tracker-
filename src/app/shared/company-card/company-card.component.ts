@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StockSymbol } from '../../interfaces/stock-symbol';
 
 @Component({
@@ -8,8 +8,16 @@ import { StockSymbol } from '../../interfaces/stock-symbol';
 })
 export class CompanyCardComponent implements OnInit {
   @Input() data: StockSymbol;
+  @Output() delete: EventEmitter<StockSymbol> = new EventEmitter();
+  percentIcon: string;
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.percentIcon = this.data?.quote.dp >= 0 ? '+' : '';
+  }
+
+  deleteData(item: any): void {
+    this.delete.emit(item);
+  }
 }

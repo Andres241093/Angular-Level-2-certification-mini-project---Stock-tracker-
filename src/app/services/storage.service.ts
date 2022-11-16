@@ -21,4 +21,10 @@ export class StorageService {
   getData(): Array<StockSymbol> {
     return JSON.parse(localStorage.getItem('storage'));
   }
+
+  deleteData(item: StockSymbol): void {
+    const index = this.storage.indexOf(item);
+    this.storage.splice(index, 1);
+    localStorage.setItem('storage', JSON.stringify(this.storage));
+  }
 }

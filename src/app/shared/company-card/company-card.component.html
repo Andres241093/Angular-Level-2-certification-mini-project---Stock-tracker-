@@ -1,10 +1,30 @@
 <app-card>
-  {{ data?.symbol.description }}
-  <p>
-    change today: {{ data?.quote.dp | percent: '1.2' }}
-    current price:
-    {{ data?.quote.c | currency }}
-    opening price: {{ data?.quote.o | currency }} high price:
-    {{ data?.quote.h | currency }}
-  </p>
+  <button
+    class="btn-close"
+    id="remove{{ data?.symbol.description }}"
+    (click)="deleteData(data)"
+  >
+    ❌
+  </button>
+  <span class="title">{{ data?.symbol.description }}</span>
+  <div class="container">
+    <div class="text-container">
+      <span>
+        Change today:
+        {{ percentIcon }} {{ data?.quote.dp | percent: '1.2' }}
+        Current price:
+        {{ data?.quote.c | currency }}
+      </span>
+      <span>
+        Opening price: {{ data?.quote.o | currency }}
+        High price:
+        {{ data?.quote.h | currency }}
+      </span>
+    </div>
+    <div class="arrow">
+      <span *ngIf="percentIcon === '+'">🡽</span>
+      <span *ngIf="percentIcon !== '+'">🡾</span>
+    </div>
+  </div>
+  <button class="primary">Go to social sentiment details >></button>
 </app-card>

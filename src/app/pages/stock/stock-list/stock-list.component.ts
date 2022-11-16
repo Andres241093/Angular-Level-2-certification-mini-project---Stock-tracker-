@@ -28,7 +28,7 @@ export class StockListComponent implements OnInit {
   }
 
   setInitialData(): void {
-    this.stockList = this.storageService.getData();
+    this.getData();
     this.searchControl.valueChanges.subscribe({
       next: (value) => (this.searchValue = value),
     });
@@ -51,6 +51,15 @@ export class StockListComponent implements OnInit {
       symbol,
     };
     this.storageService.saveData(this.stockSymbol);
+    this.getData();
+  }
+
+  deleteData(item: StockSymbol): void {
+    this.storageService.deleteData(item);
+    this.getData();
+  }
+
+  getData(): void {
     this.stockList = this.storageService.getData();
   }
 }
