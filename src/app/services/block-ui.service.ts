@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class SpinnerService {
+export class BlockUiService {
   loading: Subject<boolean> = new Subject();
 
   constructor() {}

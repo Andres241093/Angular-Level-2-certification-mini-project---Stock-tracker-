@@ -4,8 +4,8 @@ import { forkJoin } from 'rxjs';
 import { CompanyDetails } from '../../../interfaces/company';
 import { Quote } from '../../../interfaces/quote';
 import { StockSymbol } from '../../../interfaces/stock-symbol';
+import { BlockUiService } from '../../../services/block-ui.service';
 import { FinnhubService } from '../../../services/finnhub.service';
-import { SpinnerService } from '../../../services/spinner.service';
 import { StorageService } from '../../../services/storage.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class StockListComponent implements OnInit {
   constructor(
     private finnhubService: FinnhubService,
     private storageService: StorageService,
-    private spinnerService: SpinnerService
+    private blockUiService: BlockUiService
   ) {}
 
   ngOnInit(): void {
@@ -37,13 +37,13 @@ export class StockListComponent implements OnInit {
   }
 
   searchData(): void {
-    this.spinnerService.show();
+    this.blockUiService.show();
     forkJoin([
       this.finnhubService.getQuote(this.searchValue),
       this.finnhubService.searchSymbol(this.searchValue),
     ]).subscribe({
       next: ([quote, symbol]) => {
-        this.spinnerService.hide();
+        this.blockUiService.hide();
         this.saveData(quote, symbol.result[0]);
       },
     });
