@@ -10,21 +10,23 @@ export class StorageService {
   constructor() {}
 
   saveData(stockSymbol: StockSymbol): void {
-    const localData = this.getData();
-    if (localData && localData.length > 0) {
-      this.storage = localData;
-    }
     this.storage.push(stockSymbol);
     localStorage.setItem('storage', JSON.stringify(this.storage));
   }
 
   getData(): Array<StockSymbol> {
+    const localData = JSON.parse(localStorage.getItem('storage'));
+    if (localData && localData.length > 0) {
+      this.storage = localData;
+    }
     return JSON.parse(localStorage.getItem('storage'));
   }
 
   deleteData(item: StockSymbol): void {
-    const index = this.storage.indexOf(item);
-    this.storage.splice(index, 1);
+    const itemToDelete = this.storage.findIndex(
+      (element) => element.symbol.symbol === item.symbol.symbol
+    );
+    this.storage.splice(itemToDelete, 1);
     localStorage.setItem('storage', JSON.stringify(this.storage));
   }
 }

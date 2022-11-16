@@ -22,8 +22,8 @@
       </span>
     </div>
     <div class="arrow">
-      <span *ngIf="percentIcon === '+'">🡽</span>
-      <span *ngIf="percentIcon !== '+'">🡾</span>
+      <span *ngIf="percentIcon === '+'; else rowDownIcon">🡽</span>
+      <ng-template #rowDownIcon>🡾</ng-template>
     </div>
   </div>
   <button class="primary">Go to social sentiment details >></button>

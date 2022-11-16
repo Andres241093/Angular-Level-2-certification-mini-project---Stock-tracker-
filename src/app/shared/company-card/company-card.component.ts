@@ -17,7 +17,7 @@ export class CompanyCardComponent implements OnInit {
     this.percentIcon = this.data?.quote.dp >= 0 ? '+' : '';
   }
 
-  deleteData(item: any): void {
+  deleteData(item: StockSymbol): void {
     this.delete.emit(item);
   }
 }
