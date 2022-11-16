@@ -1,0 +1,4 @@
+<div [ngClass]="{ container: loading }">
+  <div [hidden]="!loading" class="text">Loading...</div>
+  <ng-content></ng-content>
+</div>

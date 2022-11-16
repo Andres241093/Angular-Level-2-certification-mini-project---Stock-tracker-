@@ -18,6 +18,12 @@ button {
   margin-left: 1%;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 input[type='text'] {
   padding: 12px 20px;
   border: 1px solid #ccc;

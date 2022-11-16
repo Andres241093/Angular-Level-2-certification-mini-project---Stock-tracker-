@@ -5,7 +5,7 @@ import { StockSymbol } from '../interfaces/stock-symbol';
   providedIn: 'root',
 })
 export class StorageService {
-  storage: Array<StockSymbol> = [];
+  private storage: Array<StockSymbol> = [];
 
   constructor() {}
 
@@ -19,7 +19,7 @@ export class StorageService {
     if (localData && localData.length > 0) {
       this.storage = localData;
     }
-    return JSON.parse(localStorage.getItem('storage'));
+    return this.storage;
   }
 
   deleteData(item: StockSymbol): void {
