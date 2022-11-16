@@ -16,6 +16,9 @@ export class FinnhubService {
   getQuote(symbol: string): Observable<any> {
     const params = new HttpParams({ fromObject: { symbol } });
     const headers = this.header;
-    return this.http.get<Observable<any>>(this.baseUrl, { headers, params });
+    return this.http.get<Observable<any>>(this.baseUrl + '/quote', {
+      headers,
+      params,
+    });
   }
 }
