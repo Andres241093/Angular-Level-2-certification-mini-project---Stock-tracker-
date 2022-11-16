@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { FinnhubService } from '../../../services/finnhub.service';
 
 @Component({
   selector: 'app-stock-list',
@@ -10,7 +11,7 @@ export class StockListComponent implements OnInit {
   searchControl: FormControl = new FormControl('');
   searchValue: string = '';
 
-  constructor() {}
+  constructor(private finnhubService: FinnhubService) {}
 
   ngOnInit(): void {
     this.searchControl.valueChanges.subscribe({
@@ -19,6 +20,8 @@ export class StockListComponent implements OnInit {
   }
 
   search(): void {
-    console.log(this.searchValue);
+    this.finnhubService.getQuote(this.searchValue).subscribe({
+      next: (res) => console.log(res),
+    });
   }
 }
