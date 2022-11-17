@@ -28,7 +28,7 @@
   </div>
   <button
     id="sentiment{{ data?.symbol.description }}"
-    [routerLink]="'/{{data?.symbol.description}}'"
+    [routerLink]="['/stock', data?.symbol.description]"
     class="primary"
   >
     Go to social sentiment details >>
