@@ -1,0 +1,28 @@
+<button id="backBtn" class="secondary" routerLink="'/'"><< Back</button>
+
+<app-card>
+  <span class="title">{{ sentimentData?.symbol }}</span>
+  <div class="container" *ngIf="sentimentData.data.length > 0; else noData">
+    <div
+      class="sentiment-container"
+      *ngFor="let sentiment of sentimentData.data"
+    >
+      <div class="details-container">
+        <span class="month">{{
+          transformToYear(sentiment.month - 1) | date: 'MMMM - YYYY'
+        }}</span>
+        <span>Change: {{ sentiment.change }}</span>
+        <span>MSPR: {{ sentiment.mspr | number: '1.2-2' }}</span>
+      </div>
+      <div class="green-arrow" *ngIf="sentiment.change >= 0; else rowDownIcon">
+        🡱
+      </div>
+      <ng-template #rowDownIcon>
+        <div class="red-arrow">🡳</div>
+      </ng-template>
+    </div>
+  </div>
+  <ng-template #noData>
+    <div class="container">No data available</div>
+  </ng-template>
+</app-card>

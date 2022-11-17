@@ -1,0 +1,45 @@
+.title {
+  font-weight: 700;
+}
+
+button {
+  margin-bottom: 3%;
+}
+
+span {
+  margin-bottom: 3%;
+}
+
+.container {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.month {
+  font-weight: 700;
+}
+
+.green-arrow {
+  color: green;
+  font-size: 70px;
+  margin-top: -3%;
+}
+
+.red-arrow {
+  color: red;
+  font-size: 70px;
+  margin-top: -3%;
+}
+
+.sentiment-container {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-container {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+}

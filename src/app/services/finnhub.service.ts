@@ -2,7 +2,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Company } from '../interfaces/company';
+import { DateRange } from '../interfaces/date-range';
 import { Quote } from '../interfaces/quote';
+import { Sentiment } from '../interfaces/sentiment';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +36,16 @@ export class FinnhubService {
     const token = this.token;
     const params = new HttpParams({ fromObject: { q: query, token } });
     return this.http.get<Company>(this.baseUrl + '/search', {
+      params,
+    });
+  }
+
+  getSentimentData(symbol: string, date: DateRange): Observable<Sentiment> {
+    const token = this.token;
+    const params = new HttpParams({
+      fromObject: { symbol, from: date.from, to: date.to, token },
+    });
+    return this.http.get<Sentiment>(this.baseUrl + '/stock/insider-sentiment', {
       params,
     });
   }

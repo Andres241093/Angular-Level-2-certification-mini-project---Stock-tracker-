@@ -9,13 +9,10 @@ import { StockSymbol } from '../../interfaces/stock-symbol';
 export class CompanyCardComponent implements OnInit {
   @Input() data: StockSymbol;
   @Output() delete: EventEmitter<StockSymbol> = new EventEmitter();
-  percentIcon: string;
 
   constructor() {}
 
-  ngOnInit() {
-    this.percentIcon = this.data?.quote.dp >= 0 ? '+' : '';
-  }
+  ngOnInit() {}
 
   deleteData(item: StockSymbol): void {
     this.delete.emit(item);
