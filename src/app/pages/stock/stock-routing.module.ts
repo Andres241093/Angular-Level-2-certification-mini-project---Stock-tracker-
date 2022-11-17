@@ -9,7 +9,7 @@ const routes: Routes = [
     component: StockListComponent,
   },
   {
-    path: '/sentiment/:symbol',
+    path: 'sentiment/:symbol',
     component: StockDetailsComponent,
   },
 ];
