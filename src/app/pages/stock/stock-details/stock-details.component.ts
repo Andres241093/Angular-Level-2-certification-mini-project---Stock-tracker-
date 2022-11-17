@@ -11,7 +11,7 @@ import { FinnhubService } from '../../../services/finnhub.service';
   styleUrls: ['./stock-details.component.css'],
 })
 export class StockDetailsComponent implements OnInit {
-  symbol: string = '';
+  symbol: string;
   sentimentData: Sentiment;
   dateRange: DateRange;
 
@@ -44,8 +44,7 @@ export class StockDetailsComponent implements OnInit {
   getDateRange(): DateRange {
     const from = new Date();
     const to = new Date();
-    from.setMonth(from.getMonth() - 3);
-    to.setMonth(to.getMonth() - 1);
+    from.setMonth(from.getMonth() - 2);
     return {
       from: from.toISOString().slice(0, 10),
       to: to.toISOString().slice(0, 10),
