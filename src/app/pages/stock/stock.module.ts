@@ -6,6 +6,7 @@ import { CardModule } from '../../shared/card/card.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CompanyCardModule } from '../../shared/company-card/company-card.module';
 import { StockDetailsComponent } from './stock-details/stock-details.component';
+import { BlockUiModule } from '../../shared/block-ui/block-ui.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { StockDetailsComponent } from './stock-details/stock-details.component';
     CardModule,
     CompanyCardModule,
     ReactiveFormsModule,
+    BlockUiModule,
   ],
   declarations: [StockListComponent, StockDetailsComponent],
 })

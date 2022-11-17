@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlockUiService } from '../../services/block-ui.service';
 
 @Component({
-  selector: 'app-spinner',
+  selector: 'app-block-ui',
   templateUrl: './block-ui.component.html',
   styleUrls: ['./block-ui.component.css'],
 })

@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { BlockUiModule } from './shared/block-ui/block-ui.module';
 
 @NgModule({
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BlockUiModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
