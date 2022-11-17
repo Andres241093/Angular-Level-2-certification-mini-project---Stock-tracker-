@@ -52,6 +52,16 @@ span {
     flex-direction: column;
     justify-content: space-between;
   }
+  .red-arrow {
+    color: red;
+    font-size: 70px;
+    margin-top: -2%;
+  }
+  .green-arrow {
+    color: green;
+    font-size: 70px;
+    margin-top: -2%;
+  }
 }
 
 .details-container {

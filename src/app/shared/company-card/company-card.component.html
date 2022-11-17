@@ -21,9 +21,11 @@
         <span> High price: {{ data?.quote.h | currency }}</span>
       </div>
     </div>
-    <div class="arrow">
-      <span *ngIf="data?.quote.dp >= 0; else rowDownIcon">🡱</span>
-      <ng-template #rowDownIcon>🡳</ng-template>
+    <div class="arrow-container">
+      <span class="arrow" *ngIf="data?.quote.dp >= 0; else rowDownIcon">🡱</span>
+      <ng-template #rowDownIcon>
+        <span class="arrow"> 🡳 </span>
+      </ng-template>
     </div>
   </div>
   <button
