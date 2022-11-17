@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { CompanyDetails } from '../../../interfaces/company';
 import { Quote } from '../../../interfaces/quote';
@@ -14,7 +14,7 @@ import { StorageService } from '../../../services/storage.service';
   styleUrls: ['./stock-list.component.css'],
 })
 export class StockListComponent implements OnInit {
-  searchControl: FormControl = new FormControl('');
+  searchControl: FormControl = new FormControl('', Validators.required);
   searchValue: string;
   stockSymbol: StockSymbol;
   stockList: Array<StockSymbol> = [];

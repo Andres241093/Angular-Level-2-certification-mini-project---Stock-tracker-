@@ -1,5 +1,12 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
 .container {
   margin-top: 5%;
+  display: flex;
 }
 
 .card-list {
@@ -16,6 +23,7 @@
 
 button {
   margin-left: 1%;
+  height: 40px;
 }
 
 button:disabled {

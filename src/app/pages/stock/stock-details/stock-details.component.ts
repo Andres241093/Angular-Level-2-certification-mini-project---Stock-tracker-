@@ -42,19 +42,18 @@ export class StockDetailsComponent implements OnInit {
   }
 
   getDateRange(): DateRange {
-    const today = new Date();
-    const date = new Date();
-    today.setDate(date.getDate() - 1);
-    date.setDate(date.getDate() - 1);
-    date.setMonth(date.getMonth() - 2);
+    const from = new Date();
+    const to = new Date();
+    from.setMonth(from.getMonth() - 3);
+    to.setMonth(to.getMonth() - 1);
     return {
-      from: date.toISOString().slice(0, 10),
-      to: today.toISOString().slice(0, 10),
+      from: from.toISOString().slice(0, 10),
+      to: to.toISOString().slice(0, 10),
     };
   }
 
   transformToYear(month: number): Date {
     const year = new Date().getFullYear();
-    return new Date(year, month, 2);
+    return new Date(year, month, 1);
   }
 }

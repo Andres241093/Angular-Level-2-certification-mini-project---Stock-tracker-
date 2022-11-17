@@ -1,20 +1,25 @@
-<app-block-ui>
-  <app-card>
-    Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)
-    <div class="container">
+<app-card>
+  Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)
+  <div class="container">
+    <div class="form">
       <input id="stockInput" [formControl]="searchControl" type="text" />
-      <button class="primary" id="trackBtn" (click)="searchData()">
-        Track Stock
-      </button>
     </div>
-  </app-card>
-
-  <div class="card-list">
-    <div class="card-container" *ngFor="let stock of stockList">
-      <app-company-card
-        (delete)="deleteData($event)"
-        [data]="stock"
-      ></app-company-card>
-    </div>
+    <button
+      class="primary"
+      id="trackBtn"
+      (click)="searchData()"
+      [disabled]="!searchControl.valid"
+    >
+      Track Stock
+    </button>
   </div>
-</app-block-ui>
+</app-card>
+
+<div class="card-list">
+  <div class="card-container" *ngFor="let stock of stockList">
+    <app-company-card
+      (delete)="deleteData($event)"
+      [data]="stock"
+    ></app-company-card>
+  </div>
+</div>
