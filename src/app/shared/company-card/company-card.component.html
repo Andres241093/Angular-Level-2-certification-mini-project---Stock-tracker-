@@ -26,7 +26,11 @@
       <ng-template #rowDownIcon>🡾</ng-template>
     </div>
   </div>
-  <button id="sentiment{{ data?.symbol.description }}" class="primary">
+  <button
+    id="sentiment{{ data?.symbol.description }}"
+    [routerLink]="'/{{data?.symbol.description}}'"
+    class="primary"
+  >
     Go to social sentiment details >>
   </button>
 </app-card>

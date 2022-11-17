@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StockDetailsComponent } from './stock-details/stock-details.component';
 import { StockListComponent } from './stock-list/stock-list.component';
 
 const routes: Routes = [
   {
     path: '',
     component: StockListComponent,
+  },
+  {
+    path: ':symbol',
+    component: StockDetailsComponent,
   },
 ];
 
